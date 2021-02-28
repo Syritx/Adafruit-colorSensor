@@ -11,9 +11,8 @@ void setup() {
 void loop() {
     uint16_t c, r, g, b;
     delay(60);
+    TCS.getRawData(&r, &g, &b, &c);
     
     if (r == 0 || r == 65535) TCS.begin();
-
-    TCS.getRawData(&r, &g, &b, &c);
     Serial.println("R:"+String(r)+" G:"+String(g)+" B:"+String(b));
 }
